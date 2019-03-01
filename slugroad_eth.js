@@ -1631,7 +1631,7 @@ tookwheelEvent.watch(function(error, result){
 });
 
 var threwslugEvent = myContract.ThrewSlug();
-tookwheelEvent.watch(function(error, result){
+threwslugEvent.watch(function(error, result){
     if(!error){
 		////////console.log(result);
 		if(checkHash(result.transactionHash, result.event) != 0) {
