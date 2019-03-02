@@ -569,8 +569,8 @@ function canTradeMile(){
 //Player input on buy
 function updateFieldBuy(){
 	f_buy = document.getElementById('fieldBuy').value;
-	if(f_buy > 500){
-		f_buy = 500;
+	if(f_buy > 800){
+		f_buy = 800;
 	}
 	doc_fieldBuySlug.innerHTML = parseInt(f_buy / a_buyCost);
 }
