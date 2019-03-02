@@ -119,8 +119,8 @@ window.onclick = function(event) {
 
 /* PAST EVENT LOG */
 
-var timeLaunch = 1551452325;
-var launchBlock = 7284499;
+var timeLaunch = 1551165613;
+var launchBlock = 5098683;
 var blockSpan = 14; //14s blocks on ETH mainnet
 var startBlock = 0;
 var ranLog = false;
