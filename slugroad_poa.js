@@ -107,7 +107,8 @@ var ranLog = false;
 function checkBlock(){
 	web3.eth.getBlockNumber(function (error, result){
 		//console.log("block number is " + result);
-		startBlock = result - 10000; //~half a day
+		startBlock = result - 40000; //~2 days
+		if(startBlock < launchBlock) { startBlock = launchBlock };
 	});
 }
 
