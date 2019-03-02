@@ -98,8 +98,8 @@ window.onclick = function(event) {
 
 /* PAST EVENT LOG */
 
-var timeLaunch = 1548516649;
-var launchBlock = 7129676;
+var timeLaunch = 1551522920;
+var launchBlock = 7584537;
 var blockSpan = 5; //5 seconds blocks on POA core
 var startBlock = 0;
 var ranLog = false;
