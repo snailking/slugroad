@@ -107,7 +107,7 @@ var ranLog = false;
 function checkBlock(){
 	web3.eth.getBlockNumber(function (error, result){
 		//console.log("block number is " + result);
-		startBlock = result - 40000; //~2 days
+		startBlock = parseInt(result - (172800 / blockSpan)); //~2 days
 		if(startBlock < launchBlock) { startBlock = launchBlock };
 	});
 }
@@ -305,7 +305,7 @@ function updateText(){
 			doc_driverState.innerHTML = 'The Lambo is swerving!';
 		} else if(a_driver == m_account){
 			doc_driverState.innerHTML = 'YOU hold the wheel!';
-			doc_actionState.innerHTML = '<button type="button" class="btn btn-lg btn-info" onclick="showModal(jump_modal)">JUMP OUT</button><h5 class="black-shadow">Drive to hyperspace</h5>';
+			doc_actionState.innerHTML = '<button type="button" class="btn btn-lg btn-info" onclick="showModal(cant_jump_modal)">JUMP OUT</button><h5 class="black-shadow">Drive to Hyperspeed</h5>';
 		} else {
 			doc_driverState.innerHTML = formatEthAdr(a_driver) + ' holds the wheel!';
 			doc_actionState.innerHTML = '<button type="button" class="btn btn-lg btn-info" onclick="showModal(throw_modal)">THROW SLUGS</button><h5 class="black-shadow">Sacrifice 200 slugs</h5>';
@@ -565,6 +565,11 @@ function canTradeMile(){
 }
 
 /* LOCAL FIELD INPUT */
+
+//Set buy field to hijack requirement
+function setDriveBuy(){
+	document.getElementById('fieldBuy').value = parseFloat(a_buyCost * 200 + 0.00001).toFixed(5);
+}
 
 //Player input on buy
 function updateFieldBuy(){
