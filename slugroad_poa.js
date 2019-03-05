@@ -288,8 +288,8 @@ function updateText(){
 	doc_buyCost.innerHTML = a_buyCost;
 	doc_buy200.innerHTML = parseFloat(a_buyCost * 200).toFixed(4);
 	doc_playerSlug.innerHTML = a_playerSlug;
-	doc_playerReward.innerHTML = a_playerBalance + a_playerDiv;
-	doc_playerReward2.innerHTML = a_playerBalance + a_playerDiv;
+	doc_playerReward.innerHTML = parseFloat(a_playerBalance + a_playerDiv).toFixed(6);
+	doc_playerReward2.innerHTML = parseFloat(a_playerBalance + a_playerDiv).toFixed(6);
 	doc_playerMile.innerHTML = a_playerMile;
 	doc_playerMile2.innerHTML = a_playerMile;
 	doc_playerMileAfter.innerHTML = parseInt(a_playerMile % 6000);
@@ -530,14 +530,14 @@ function updateMaxSlug(){
 //Current cost for buying slugs
 function updateBuySlugCost(){
 	ComputeSlugCost(true, function(result) {
-		a_buyCost =	formatEthValue2(web3.fromWei(result,'ether'));
+		a_buyCost =	web3.fromWei(result,'ether');
 	});
 }
 
 //Current cost for getting slugs through time
 function updateGetSlugCost(){
 	ComputeSlugCost(false, function(result) {
-		a_getCost =	formatEthValue2(web3.fromWei(result,'ether'));
+		a_getCost =	web3.fromWei(result,'ether');
 	});
 }
 
@@ -551,7 +551,7 @@ function updateTrade6000Reward(){
 //Current reward for trading player miles
 function updateMileReward(){
 	ComputeMileReward(parseInt(a_playerMile / 6000), function(result) {
-		a_mileReward = formatEthValue2(web3.fromWei(result,'ether'));
+		a_mileReward = parseFloat(web3.fromWei(result,'ether')).toFixed(8);
 	});
 }
 
@@ -568,7 +568,7 @@ function canTradeMile(){
 
 //Set buy field to hijack requirement
 function setDriveBuy(){
-	document.getElementById('fieldBuy').value = parseFloat(a_buyCost * 200 + 0.00001).toFixed(5);
+	document.getElementById('fieldBuy').value = parseFloat(a_buyCost * 200 + 0.001).toFixed(4);
 }
 
 //Player input on buy
